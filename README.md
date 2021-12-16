@@ -20,7 +20,7 @@ Today I Learned.
 
 ## 코틀린
 
-- [kotlin koans 내용 정리]
+- [kotlin koans 내용 정리](kotlin/kotlin-koans.md)
 
 ## 스프링
 

@@ -4,14 +4,14 @@
 
 ### Hello, world!
 
-~~~
+~~~kotlin
 fun start(): String = TODO() 
 ~~~
 
 <details>
   <summary> start 함수가 "OK" 를 리턴하도록 변경하기 </summary>
 
-~~~ 
+~~~kotlin 
 fun start(): String = "OK"
 ~~~  
 
@@ -19,23 +19,23 @@ fun start(): String = "OK"
 
 - [function syntax](https://kotlinlang.org/docs/basic-syntax.html#functions)
   - 두 개의 Int 파라미터와 Int 값을 리턴하는 경우  
-    - ~~~ 
+    - ~~~kotlin
       fun sum(a: Int, b: Int): Int {
           return a + b
       } 
       ~~~
   - 함수 본문은 표현식으로 쓸 수 있고, 리턴 타입은 생략 할 수 있다. 
-    - ~~~
+    - ~~~kotlin
       fun sum(a: Int, b: Int) = a + b
       ~~~
   - 반환 타입이 없는 경우는 Unit 을 사용한다.
-    - ~~~
+    - ~~~kotlin
       fun printSum(a: Int, b: Int): Unit {
           println("sum of $a and $b is ${a + b}")
       } 
       ~~~
   - Unit 리턴 타입은 생략 할 수 있다.
-    - ~~~
+    - ~~~kotlin
       fun printSum(a: Int, b: Int) {
           println("sum of $a and $b is ${a + b}")
       }
