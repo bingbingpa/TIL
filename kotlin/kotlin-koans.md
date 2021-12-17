@@ -1,8 +1,13 @@
 # [Kotlin Koans](https://kotlinlang.org/docs/koans.html)
 
-## Introduction
+- 온라인으로 학습하기 https://play.kotlinlang.org/koans/overview 
+- intellij 플러그인으로 학습하기
+  [EduTools 플러그인 설치](https://www.jetbrains.com/help/education/install-edutools-plugin.html?section=IntelliJ%20IDEA)
+  및 [Kotlin Koans 과정 선택](https://www.jetbrains.com/help/education/learner-start-guide.html?section=Kotlin%20Koans)
 
-### Hello, world!
+## I. Introduction
+
+### 1. Hello, world!
 
 ~~~kotlin
 fun start(): String = TODO() 
@@ -41,7 +46,7 @@ fun start(): String = "OK"
       }
       ~~~
 
-### Named arguments
+### 2. Named arguments
 
 ~~~kotlin
 fun joinOptions(options: Collection<String>) =
@@ -99,7 +104,7 @@ fun joinOptions(options: Collection<String>) =
       foo(strings = arrayOf("a", "b", "c"))
       ~~~
 
-### Default arguments
+### 3. Default arguments
 
 ~~~kotlin
 fun foo(name: String, number: Int, toUpperCase: Boolean) =
@@ -158,7 +163,7 @@ fun foo(name: String = "a", number: Int = 42, toUpperCase: Boolean = false) =
       }
       ~~~
 
-### Triple-quoted strings
+### 4. Triple-quoted strings
 
 ~~~kotlin
 const val question = "life, the universe, and everything"
@@ -225,22 +230,105 @@ fun main() {
         println("$s.length is ${s.length}") // prints "abc.length is 3"
         ~~~
 
-### Nullable types
 
-### Nothing types
+### 5. String templates
 
-### Lambdas
+### 6. Nullable types
+
+### 7. Nothing types
+
+### 8. Lambdas
 
 <br>
 
-## Classes
+## II. Classes
 
-## Conventions
+### 9. Data classes
 
-## Collections
+### 10. Smart casts
 
-## Properties
+### 11. Sealed classes
 
-## Builders
+### 12. Rename on import
 
-## Generics
+### 13. Extension functions
+
+<br>
+
+## III. Conventions
+
+### 14. Comparison
+
+### 15. Ranges
+
+### 16. For loop
+
+### 17. Operators overloading
+
+### 18. Invoke
+
+<br>
+
+## IV. Collections
+
+### 19. Introduction
+
+### 20. Sort
+
+### 21. Filter map
+
+### 22. All Any and other predicates
+
+### 23. Associate
+
+### 24. GroupBy
+
+### 25. Partition
+
+### 26. FlatMap
+
+### 27. Max min
+
+### 28. Sum
+
+### 29. Fold
+
+### 30. Compound tasks
+
+### 31. Sequences
+
+### 32. Getting used to new style
+
+<br>
+
+## V. Properties
+
+### 33. Properties
+
+### 34. Lazy property
+
+### 35. Delegates examples
+
+### 36. Delegates how it works
+
+<br>
+
+## VI. Builders
+
+### 37. Function literals with receiver
+
+### 38. String and map builders
+
+### 39. The function apply
+
+### 40. Html builders
+
+### 41. Builders how it works
+
+### 42. Builders implementation
+
+<br>
+
+## VII. Generics
+
+### 43. Generic functions
