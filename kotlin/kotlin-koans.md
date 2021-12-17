@@ -233,7 +233,102 @@ fun main() {
 
 ### 5. String templates
 
+삼중 따옴표로 묶인 문자열은 여러 줄 문자열뿐만 아니라 정규식 패턴을 만들때에도 유용하다.
+~~~kotlin
+  val month = "(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)"
+
+  fun getPattern(): String = TODO()
+~~~
+
+<details>
+  <summary> 
+    month 변수를 이용해 패턴을 다음과 같은 형태가 되도록 작성하기. <br>
+    13 JUN 1992 (two digits, one whitespace, a month abbreviation, one whitespace, four digits).  
+  </summary>
+
+~~~kotlin 
+fun getPattern(): String = """\d{2} $month \d{4}"""
+~~~  
+
+</details>
+
 ### 6. Nullable types
+
+~~~kotlin
+fun sendMessageToClient(
+        client: Client?, message: String?, mailer: Mailer
+) {
+    TODO()
+}
+
+class Client(val personalInfo: PersonalInfo?)
+class PersonalInfo(val email: String?)
+interface Mailer {
+    fun sendMessage(email: String, message: String)
+}
+~~~
+
+~~~java
+public void sendMessageToClient(
+    @Nullable Client client,
+    @Nullable String message,
+    @NotNull Mailer mailer
+) {
+    if (client == null || message == null) return;
+
+    PersonalInfo personalInfo = client.getPersonalInfo();
+    if (personalInfo == null) return;
+
+    String email = personalInfo.getEmail();
+    if (email == null) return;
+
+    mailer.sendMessage(email, message);
+}
+~~~
+
+<details>
+  <summary> if 표현식을 한번만 사용 위의 자바 코드를 만족하도록 TODO() 부분 작성하기  </summary>
+
+~~~kotlin 
+fun sendMessageToClient(
+        client: Client?, message: String?, mailer: Mailer
+) {
+    val email = client?.personalInfo?.email
+    if(email != null && message != null) {
+        mailer.sendMessage(email,message)
+    }
+}
+~~~  
+
+</details>
+
+- [null safety and safe calls](https://kotlinlang.org/docs/null-safety.html#nullable-types-and-non-null-types)
+  - 코틀린의 타입 시스템은 [The Billion Dollar Mistake](https://en.wikipedia.org/wiki/Tony_Hoare#Apologies_and_retractions)라고도 하는 null 참조의 위험을 제거하는 것을 목표로 한다.
+  - 코틀린에서 NPE(NullPointerException) 가 발생하는 경우
+    - NullPointerException() 을 throw 하는 경우
+    - !! 연산자를 사용하는 경우
+    - 다음과 같이 초기화와 관련된 데이터가 불일치 할 경우
+      - 생성자에서 사용할 수 있는 초기화 되지 않은 this 가 전달되어 어딘가에서 사용되는 경우 
+      - 슈퍼 클래스의 생성자가 실행될 때 파생 클래스에서 선언되거나 재정의된 속성이 아직 초기화 되지 않은 경우 
+    - 코틀린에서는 null 을 참조할 수 있는 타입과 참조할 수 없는 타입을 구별한다.
+      - ~~~kotlin
+        var a: String = "abc" // Regular initialization means non-null by default
+        a = null // compilation error 
+        ~~~
+      - null 을 참조하려면 다음과 같이 ? 을 써줘야 한다.
+        - ~~~kotlin
+          var b: String? = "abc" // can be set to null
+          b = null // ok
+          print(b)
+          ~~~
+      - 메소드를 호출할 때 null 을 허용하지 않는 타입을 사용한다면 NPE 가 발생하지 않도록 보장 되므로 다음은 안전하다고 할 수 있다.
+        - ~~~kotlin
+          val l = a.length
+          ~~~
+      - 위의 예에서 b 는 null 을 허용하는 타입이기 때문에 컴파일 에러가 발생한다.(b?.length 와 같이 써야한다.)
+        - ~~~kotlin
+          val l = b.length // error: variable 'b' can be null
+          ~~~
 
 ### 7. Nothing types
 
