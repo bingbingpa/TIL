@@ -41,6 +41,7 @@
           fun search(@RequestParam(required = true) keyword : String?) {
               return "/result"
           }
+      }
       ~~~
   - 위의 keyword 라는 값을 필수 값으로 만들기 위해서는 null 이 불가능한 타입으로 바꿔줘야 한다.
     - ~~~ kotlin
@@ -107,7 +108,7 @@
           model().attributeExists("topics")
       )
       ~~~
-  - 코틀린에서 작성할 때(MockMvc DSL) *com.ninja-squad:springmockk 를 사용하면 조금 더 간결하게 mock 을 사용할 수 있다.*
+  - 코틀린에서 작성할 때(*com.ninja-squad:springmockk 를 사용하면 조금 더 간결하게 mock 을 사용할 수 있다.*)
     - ~~~kotlin
       mockMvc.get("/forum/topics") {
           accept = MediaType.TEXT_HTML
