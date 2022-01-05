@@ -51,6 +51,7 @@
           fun search(@RequestParam keyword : String) {
               return "/result"
           }
+      }
       ~~~
 - java 의 static 키워드 대체하기
   - companion object 를 사용하여 정적 필드와 메소드를 정의
@@ -61,6 +62,7 @@
           public static String thumbnail() {
               ...
           }
+      }
       ~~~
     - ~~~kotlin
       class Article {
@@ -71,6 +73,7 @@
                   ...
               }
           }
+      }
       ~~~
   - kotlin 코드를 자바에서 참조해야 한다면 다음과 같이 const, @JvmStatic 키워드를 추가해야 한다.
   - ~~~kotlin
@@ -104,7 +107,7 @@
           model().attributeExists("topics")
       )
       ~~~
-  - 코틀린에서 작성할 때(MockMvc DSL), com.ninja-squad:springmockk 를 사용하면 조금 더 간결하게 mock 을 사용할 수 있다.
+  - 코틀린에서 작성할 때(MockMvc DSL) *com.ninja-squad:springmockk 를 사용하면 조금 더 간결하게 mock 을 사용할 수 있다.*
     - ~~~kotlin
       mockMvc.get("/forum/topics") {
           accept = MediaType.TEXT_HTML
@@ -142,6 +145,7 @@
             private String phoneNumber;
         
             // getters, setters
+        }
         ~~~
     - kotlin 코드
       - jpa entity 는 기본 생성자가 필요하기 때문에 **kotlin("plugin.jpa")** 가 필요하다. 
@@ -165,6 +169,7 @@
         val kotlinVersion = "1.6.10"
         kotlin("plugin.spring") version kotlinVersion
         kotlin("plugin.jpa") version kotlinVersion
+    }
     ~~~
   - plugins.spring 
     - 해당 플러그인을 사용하면 @Component, @Async, @Transactional, @Cacheable, @SpringBootTest, @Configuration, 
