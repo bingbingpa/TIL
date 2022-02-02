@@ -5,6 +5,8 @@
   [EduTools 플러그인 설치](https://www.jetbrains.com/help/education/install-edutools-plugin.html?section=IntelliJ%20IDEA)
   및 [Kotlin Koans 과정 선택](https://www.jetbrains.com/help/education/learner-start-guide.html?section=Kotlin%20Koans)
 
+<br>
+
 ## I. Introduction
 
 ### 1. Hello, world!
