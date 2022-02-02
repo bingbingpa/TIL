@@ -306,7 +306,9 @@ fun sendMessageToClient(
   - 코틀린의 타입 시스템은 [The Billion Dollar Mistake](https://en.wikipedia.org/wiki/Tony_Hoare#Apologies_and_retractions)라고도 하는 null 참조의 위험을 제거하는 것을 목표로 한다.
   - 코틀린에서 NPE(NullPointerException) 가 발생하는 경우
     - NullPointerException() 을 throw 하는 경우
-    - !! 연산자를 사용하는 경우
+    - !! 연산자(not-null assertion)를 사용하는 경우
+      - 느낌표를 이중(!!)으로 사용하면 어떤 값이든 널이 될 수 없는 타입으로 강제로 바꿀 수 있다.
+      - 실제 널에 대해 !!를 적용하면 NPE 가 발생한다.
     - 다음과 같이 초기화와 관련된 데이터가 불일치 할 경우
       - 생성자에서 사용할 수 있는 초기화 되지 않은 this 가 전달되어 어딘가에서 사용되는 경우 
       - 슈퍼 클래스의 생성자가 실행될 때 파생 클래스에서 선언되거나 재정의된 속성이 아직 초기화 되지 않은 경우 
@@ -332,7 +334,99 @@ fun sendMessageToClient(
 
 ### 7. Nothing types
 
+항상 예외를 throw 하는 함수의 반환 유형으로 Nothing 타입을 사용할 수 있다.
+~~~kotlin
+import java.lang.IllegalArgumentException
+
+fun failWithWrongAge(age: Int?) TODO() {
+    throw IllegalArgumentException("Wrong age: $age")
+}
+
+fun checkAge(age: Int?) {
+    if (age == null || age !in 0..150) failWithWrongAge(age)
+    println("Congrats! Next year you'll be ${age + 1}.")
+}
+
+fun main() {
+    checkAge(10)
+}
+~~~
+
+<details>
+  <summary> 
+    TODO() 부분을 채워서 코드가 컴파일 되도록 하기 <br>
+  </summary>
+
+Nothing 타입이 없으면 컴파일러가 age 가 null 일 수 있다고 가정하기 때문에 checkAge 함수가 컴파일 되지 않는다.
+~~~kotlin 
+import java.lang.IllegalArgumentException
+
+fun failWithWrongAge(age: Int?): Nothing {
+    throw IllegalArgumentException("Wrong age: $age")
+}
+
+fun checkAge(age: Int?) {
+    if (age == null || age !in 0..150) failWithWrongAge(age)
+    println("Congrats! Next year you'll be ${age + 1}.")
+}
+
+fun main() {
+    checkAge(10)
+}
+~~~  
+
+</details>
+
 ### 8. Lambdas
+
+~~~kotlin
+fun containsEven(collection: Collection<Int>): Boolean =
+        collection.any { TODO() }
+~~~
+
+<details>
+  <summary> 컬렉션에 짝수가 포함되어 있는지 확인하는 람다 작성하기 </summary>
+
+~~~kotlin 
+fun containsEven(collection: Collection<Int>): Boolean =
+        collection.any { it % 2 == 0 }
+~~~  
+
+</details>
+
+- [lambdas](https://kotlinlang.org/docs/lambdas.html#lambda-expressions-and-anonymous-functions)
+  - 람다 표현식 문법
+    - ~~~kotlin
+      val sum: (Int, Int) -> Int = { x: Int, y: Int -> x + y }
+      ~~~
+    - 람다 표현식은 항상 중괄호로 둘러 싸여 있다.
+    - 매개 변수 선언은 중괄호 안에 들어 간다.
+    - 본문 부분은 -> 후에 쓴다.
+    - 만약 람다의 반환 타입이 Unit 이 아니라면 람다 본문 마지막 식이 반환 값으로 리턴된다. 
+    - 위 구문은 다음과 같이 바꿔 쓸 수 있다.
+      - ~~~kotlin
+        val sum = { x: Int, y: Int -> x + y }
+        ~~~
+  - 후행 람다 전달
+    - 마지막 매개변수가 함수이면 해당 인수로 전달된 람다 표현식을 괄호 외부에 배치할 수 있다.
+      - ~~~kotlin
+        val product = items.fold(1) { acc, e -> acc * e }
+        ~~~
+    - 람다가 해당 호출의 유일한 인수인 경우 괄호를 완전히 생략할 수 있다.
+      - ~~~kotlin
+        run { println("...") }
+        ~~~
+  - it: 단일 매개변수의 암시적 이름
+    - 람다의 파라미터가 하나뿐이고 그 타입을 컴파일러가 추론할 수 있는 경우 it 을 바로 쓸 수 있다.
+    - 람다 파라미터로 이름을 따로 지정하지 않은 경우에만 it 이라는 이름이 자동으로 만들어진다.
+    - 람다 안에 람다가 중첩되는 경우 각 람다의 파라미터를 명시하는 편이 낫다. 파라미터를 명시하지 않으면 각각의 it 이 가리키는 파라미터가 어떤 람다에 속했는지 파악하기 어려울 수 있다.
+      - ~~~kotlin
+        ints.filter { it > 0 }
+        ~~~
+  - 사용하지 않는 매개변수는 _ 를 사용할 수 있다.
+    - ~~~kotlin
+      map.forEach { _, value -> println("$value!") }
+      ~~~
 
 <br>
 
