@@ -22,6 +22,8 @@ Today I Learned.
 
 - [kotlin koans 내용 정리](kotlin/kotlin-koans.md)
 - [코프링](kotlin/kotlin-with-spring.md)
+- [로깅 유틸](kotlin/kotlin-logger.md)
+- [lateinit vs lazy](kotlin/lateinit-vs-lazy.md)
 
 ## 스프링
 
