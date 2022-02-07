@@ -1,4 +1,4 @@
-## spring boot SQL 보기 옵션 정리
+# spring boot SQL 보기 옵션 정리
 
 - sql 보기: spring.jpa.properties.hibernate.show_sql=true
 - sql 포맷팅 해서 보기: spring.jpa.properties.hibernate.format_sql=true

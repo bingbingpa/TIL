@@ -1,4 +1,4 @@
-## JPA annotation 정리
+# JPA annotation 정리
 
 - @MappedSuperclass
   - 부모 클래스를 상속받는 자식 클래스에게 **매핑 정보만 제공**하고 싶을 때 사용한다.

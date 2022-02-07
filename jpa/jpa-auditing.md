@@ -1,4 +1,4 @@
-## JPA Auditing
+# JPA Auditing
 
 - audit 는 *감시하다, 감사하다* 라는 뜻으로 Spring Data JPA 에서 시간에 대해서 자동으로 값을 넣어주는 기능이다.
 - ~~~ java
