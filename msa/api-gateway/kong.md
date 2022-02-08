@@ -49,7 +49,7 @@
 
 - 라우팅
   - 다음과 같은 형태로 사용한다.
-    - ~~~json
+    - ~~~yml
       services:
         - name: sample1-public
           url: '<http://sample1.com>'
