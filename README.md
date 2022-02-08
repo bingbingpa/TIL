@@ -41,4 +41,4 @@ Today I Learned.
 ## MSA
 
 - [IPC(Inter-Process Communication) 조사 하기](msa/ipc/README.md)
-- [api-gateway 조사 하기](msa/api-gateway-kong.md)
+- [api-gateway 조사 하기](msa/api-gateway/kong.md)
