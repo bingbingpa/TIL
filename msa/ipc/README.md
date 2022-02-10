@@ -10,7 +10,7 @@
   - 네트워크 통신을 위한 작업 하나하나 챙기기 귀찮으니 통신이나 call 방식에 신경쓰지 않고 원격지의 자원을 내 것처럼 사용하는 것이다.
   - IDL(Interface Definication Language) 기반으로 다양한 언어를 가진 환경에서도 쉽게 확장이 가능하다.
     - 지원 언어: C++, Java, Python, Ruby, Node.js, C#, Go, PHP, Objective-C …
-  - PRC 의 핵심 개념 Stub(스텁)
+  - RPC 의 핵심 개념 Stub(스텁)
     - 서버와 클라이언트는 서로 다른 주소 공간을 사용 하므로, 함수 호출에 사용된 매개 변수를 꼭 변환해줘야 하는데 이걸 담당하는게 스텁이다.
     - client stub 은 함수 호출에 사용된 파라미터의 변환(Marshalling, 마샬링) 및 함수 실행 후 서버에서 전달 된 결과의 변환을 담당한다.
     - server stub 은 클라이언트가 매개 변수의 역변환(Unmarshalling, 언마샬링) 및 함수 실행 결과 변환을 담당하게 된다.
