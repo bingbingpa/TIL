@@ -5,11 +5,11 @@ Today I Learned.
 
 ## 운영체제
 
-- [운영체제 강의 정리](https://github.com/bingbingpa/dev-study/blob/main/operating-system/README.md)
+- [운영체제 강의 정리](os/README.md)
 
 ## 네트워크
 
-- [모든 개발자를 위한 HTTP 웹 기본 지식 강의 정리](https://github.com/bingbingpa/dev-study/blob/main/http-basic/README.md)
+- [모든 개발자를 위한 HTTP 웹 기본 지식 강의 정리](network/http.md)
 
 ## 데이터베이스 
 
