@@ -33,7 +33,6 @@ Today I Learned.
 
 - [jpa annotation 정리](jpa/jpa-annotation.md)
 - [jpa Auditing](jpa/jpa-auditing.md)
-- [우아콘2020-수십억건에서 QUERYDSL 사용하기](jpa/woowacon-querydsl.md)
 
 ## 객체지향
 
@@ -43,3 +42,8 @@ Today I Learned.
 
 - [gRPC](msa/grpc/README.md)
 - [api-gateway kong](msa/api-gateway/kong/README.md)
+
+## 세미나
+
+- [우아콘2020-수십억건에서 QUERYDSL 사용하기](seminar/woowacon-querydsl.md)
+- [우아한테크세미나-우아한레디스](seminar/wootech-redis.md)

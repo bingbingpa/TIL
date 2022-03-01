@@ -1,4 +1,4 @@
-# [우아콘2020] 수십억건에서 QUERYDSL 사용하기
+# [[우아콘2020] 수십억건에서 QUERYDSL 사용하기](https://www.youtube.com/watch?v=zMAX7g6rO_Y)
 
 
 ## 1. 워밍업
