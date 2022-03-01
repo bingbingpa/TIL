@@ -21,18 +21,19 @@ Today I Learned.
 ## 코틀린
 
 - [kotlin koans 내용 정리](kotlin/kotlin-koans.md)
-- [코프링](kotlin/kotlin-with-spring.md)
 - [로깅 유틸](kotlin/kotlin-logger.md)
 - [lateinit vs lazy](kotlin/lateinit-vs-lazy.md)
 
 ## 스프링
 
 - [spring boot SQL 보기 옵션 정리](spring/sql-log-option.md)
+- [코프링 기초](spring/kotlin-with-spring.md)
 
 ## JPA
 
 - [jpa annotation 정리](jpa/jpa-annotation.md)
 - [jpa Auditing](jpa/jpa-auditing.md)
+- [우아콘2020-수십억건에서 QUERYDSL 사용하기](jpa/woowacon-querydsl.md)
 
 ## 객체지향
 
