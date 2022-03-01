@@ -57,30 +57,30 @@
 - list: insert 
   - 기본 사용법
     - Lpush 는 맨 앞으로 삽입, Rpush 는 맨 뒤로 삽입
-    - Lpush <key> <A>
+    - Lpush \<key> \<A>
       - key: (A)
-    - Rpush <key> <B>
+    - Rpush \<key> <B>
       - key: (A, B)
-    - Lpush <key> <C>
+    - Lpush \<key> \<C>
       - key: (C, A, B)
-    - Rpush <key> <D, A>
+    - Rpush \<key> \<D, A>
       - key: (C, A, B, D, A)
 - list: pop
   - lpop, rpop 로 맨 처음 또는 끝에서 값을 꺼낼 수 있다.
 - set: 데이터가 있는지 없는지만 체크하는 용도
   - 기본 사용법
-    - SADD <key> <Value>
+    - SADD \<key> \<Value>
       - value 가 이미 key 에 있으면 추가되지 않는다.
-    - SMEMBERS <key>
+    - SMEMBERS \<key>
       - 모든 value 를 돌려줌
-    - SISMEMBER <key> <value>
+    - SISMEMBER \<key> \<value>
       - value 가 존재하면 1, 없으면 0
   - 특정 유저를 flollow 하는 목록을 저장할 때 유용하다.
 - sortes sets: 랭킹에 따라서 순서가 바뀌길 바란다면 
   - 기본 사용법
-    - ZADD <key> <score> <value>
+    - ZADD \<key> \<score> \<value>
       - value 가 이미 key 에 있으면 해당 score 로 변경된다.
-    - ZRANGE <key> <startIndex> <endIndex>
+    - ZRANGE \<key> \<startIndex> \<endIndex>
       - 해당 index 범위 값을 모두 돌려줌
       - zrange testkey 0-1(0에서 -1 로 주면 모든 범위를 다 가져온다.)
         - 모든 범위를 가져옴
