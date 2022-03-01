@@ -44,14 +44,14 @@
 
 - Strings - 단일 key
   - 기본 사용법
-    - set <key> <value>
-    - get <key>
+    - set \<key> \<value>
+    - get \<key>
   - set token:1234567 abcdefghijklmn
   - get token:1234567
 - strings - 멀티 key
   - 기본 사용법
-    - mset <key1> <value1> <key2> <value2> ... <keyN> <valueN>
-    - mget <key1> <key2> ..... <keyN>
+    - mset \<key1> \<value1> \<key2> \<value2> ... \<keyN> \<valueN>
+    - mget \<key1> \<key2> ..... \<keyN>
   - mset token:1234567 abcdefghijklmn email:1234567 test@gmail.com
   - mget token:1234567 email:1234567
 - list: insert 
@@ -59,9 +59,9 @@
     - Lpush 는 맨 앞으로 삽입, Rpush 는 맨 뒤로 삽입
     - Lpush \<key> \<A>
       - key: (A)
-    - Rpush \<key> <B>
+    - Rpush \<key> \<B>
       - key: (A, B)
-    - Lpush \<key> \<C>
+    - Lpush \<key> \<C\>
       - key: (C, A, B)
     - Rpush \<key> \<D, A>
       - key: (C, A, B, D, A)
