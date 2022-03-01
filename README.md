@@ -47,3 +47,4 @@ Today I Learned.
 
 - [우아콘2020-수십억건에서 QUERYDSL 사용하기](seminar/woowacon-querydsl.md)
 - [우아한테크세미나-우아한레디스](seminar/wootech-redis.md)
+- [우아한테크세미나-우아한객체지향](seminar)
