@@ -244,12 +244,16 @@ fun main() {
 
 <details>
   <summary> 
-    month 변수를 이용해 패턴을 다음과 같은 형태가 되도록 작성하기. <br>
+    month 변수를 이용해 정규식을 작성해서 다음과 같은 패턴을 체크할 수 있도록 만들기 <br>
     13 JUN 1992 (two digits, one whitespace, a month abbreviation, one whitespace, four digits).  
   </summary>
 
 ~~~kotlin 
+val month = "(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)"
 fun getPattern(): String = """\d{2} $month \d{4}"""
+
+// 정규식 확인 
+println(Regex(getPattern()).matches("13 JUN 1992")) // true
 ~~~  
 
 </details>
@@ -435,6 +439,43 @@ fun containsEven(collection: Collection<Int>): Boolean =
 ## II. Classes
 
 ### 9. Data classes
+
+~~~kotlin
+class Person
+
+fun getPeople(): List<Person> {
+    return listOf(Person("Alice", 29), Person("Bob", 31))
+}
+
+fun comparePeople(): Boolean {
+    val p1 = Person("Alice", 29)
+    val p2 = Person("Alice", 29)
+    return p1 == p2  // should be true
+}
+~~~
+
+<details>
+  <summary> 컴파일 에러가 해결되도록 Person 클래스 수정하기 </summary>
+
+~~~kotlin 
+data class Person(val name: String, val age: Int)
+
+fun getPeople(): List<Person> {
+    return listOf(Person("Alice", 29), Person("Bob", 31))
+}
+
+fun comparePeople(): Boolean {
+    val p1 = Person("Alice", 29)
+    val p2 = Person("Alice", 29)
+    return p1 == p2  // should be true
+}
+~~~  
+
+</details>
+
+- [classes](https://kotlinlang.org/docs/classes.html)
+- [properties](https://kotlinlang.org/docs/properties.html)
+- [data classes](https://kotlinlang.org/docs/data-classes.html)
 
 ### 10. Smart casts
 
