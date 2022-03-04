@@ -1,9 +1,7 @@
-# [[우아한테크세미나]우아한객체지향](https://www.youtube.com/watch?v=dJ5C4qRqAgA&list=WL&index=13)
+# [[우아한테크세미나] 우아한객체지향](https://www.youtube.com/watch?v=dJ5C4qRqAgA&list=WL&index=13)
 
-- 우아한 객체지향 샘플
-  - [https://github.com/eternity-oop/Woowahan-OO-01-object-reference](https://github.com/eternity-oop/Woowahan-OO-01-object-reference)
-  - [https://github.com/eternity-oop/Woowahan-OO-02-domain-service](https://github.com/eternity-oop/Woowahan-OO-02-domain-service)
-  - [https://github.com/eternity-oop/Woowahan-OO-03-domain-event](https://github.com/eternity-oop/Woowahan-OO-03-domain-event)
+- flow chart 그리기 참고 
+  - [mermaid](https://mermaid-js.github.io/mermaid)
 
 ### 의존성
 
@@ -133,6 +131,46 @@
 
 ### 예제 살펴보기
 
+- [https://github.com/eternity-oop/Woowahan-OO-01-object-reference](https://github.com/eternity-oop/Woowahan-OO-01-object-reference)
+- **연관관계**: 협력을 위해 필요한 **영구적인** 탐색 구조
+  - = 탐색가능성(navigability)
+  - 두 객체 사이에 협력이 필요하고 두 객체의 관계가 영구적이라면 **연관관계**를 이용해 탐색 경로 구현
+  - Order 가 뭔지 알면 Order 를 통해 원하는 OrderLineItem 을 찾을 수 있다.
+    - ~~~mermaid
+      flowchart LR
+      Order --> OrderLineItem 
+      ~~~
+  - **메세지를 결정하고 메소드를 만들어야 한다.**
+- **의존관계**: 협력을 위해 **일시적으로** 필요한 의존성(파라미터, 리턴타입, 지연변수)
+
 ### 설계 개선하기
 
+- [https://github.com/eternity-oop/Woowahan-OO-02-domain-service](https://github.com/eternity-oop/Woowahan-OO-02-domain-service)
+- 설계를 진화 시키기 위한 출발점
+  - 코드 작성 후 의존성 관점에서 설계 검토 
+  - 의존 관계를 직접 종이에 그려보자.
+- 두 가지 문제 
+  - 객체 참조로 인한 결합도 상승
+    - 성능 문제 
+      - 어디까지 조회할 것인가?
+      - 객체 그룹의 조회 경계가 모호
+    - 수정 시 도메인 규칙을 함께 적용할 경계는?
+      - Order 의 상태를 변경할 때 연관된 도메인 규칙을 함께 적용해야하는 객체의 범위는?
+      - (다른말로) 트랙잭션 경계는 어디까지인가?
+        - 어떤 테이블에서 어떤 테이블까지 하나의 단위로 lock 을 설정할 것인가?
+    - 객체 참조의 문제점
+      - 모든 객체가 연결돼 있기 때문에 어떤 객체라도 함께 수정 가능
+    - 어떤 객체들을 묶고 어떤 객체들을 분리할 것인가?
+      - **함께 생성되고 함께 삭제되는 객체들을 함께 묶어라**
+      - 도메인 제약사항을 공유하는 객체들을 함께 묶어라
+      - 가능하면 분리하라
+  - 패키지 의존성 사이클
+- 수정 방안
+  - 중간 객체를 이용한 의존성 사이클 끊기. 변하지 않는 데이터로 추상적인 중간 객체를 만든다. DIP 의 변형 같은 느낌?
+  - 인터페이스나 추상 클래스를 통해 추상화를 하고 의존성을 역전
+  - 새로운 패키지 추가
+
 ### 의존성과 시스템 분리
+
+- [https://github.com/eternity-oop/Woowahan-OO-03-domain-event](https://github.com/eternity-oop/Woowahan-OO-03-domain-event)
+- domain event 를 통한 협력
