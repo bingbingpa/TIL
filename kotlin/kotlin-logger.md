@@ -1,4 +1,4 @@
-# kotlin logging util 
+# kotlin logging util
 
 ~~~kotlin
 import org.slf4j.Logger
