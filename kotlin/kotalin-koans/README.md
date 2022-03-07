@@ -11,12 +11,12 @@
 
 ## [II. Classes](02-classes.md)
 
-## [III. Conventions](03-conventions.md)
+## ~~III. Conventions~~
 
-## [IV. Collections](04-collections.md)
+## ~~IV. Collections~~
 
-## [V. Properties](05-properties.md)
+## ~~V. Properties~~
 
-## [VI. Builders](06-builders.md)
+## ~~VI. Builders~~
 
-## [VII. Generics](07-generics.md)
+## ~~VII. Generics~~
