@@ -1,0 +1,23 @@
+# logging
+
+- OpenTracing: 애플리케이션 간 분산 추적을 위한 표준
+  - Jaeger, zipkin
+  - [LINE 광고 플랫폼의 MSA 환경에서 Zipkin 을 활용해 로그 트레이싱하기](https://engineering.linecorp.com/ko/blog/line-ads-msa-opentracing-zipkin/)
+  - [11번가 Spring Cloud 기반 MSA 로의 전환 - 지난 1년간의 이야기](https://www.youtube.com/watch?v=J-VP0WFEQsY&t=2933s)
+  - [zipkin](https://github.com/openzipkin/zipkin)
+    - [zipkin 관련 정리글](https://velog.io/@hanblueblue/Zipkin-%EA%B4%80%EB%A0%A8-%EC%9E%90%EB%A3%8C-%EC%A0%95%EB%A6%AC)
+- [prometheus](https://github.com/prometheus/prometheus)
+  - 프로메테우스는 대상 시스템으로부터 각종 모니터링 지표를 수집하여 저장하고 검색할 수 있는 시스템이다. 
+  - 그라파나를 통한 시각화 지원
+  - 많은 시스템을 모니터링할 수 있는 다양한 플러그인을 가지고 있다.
+  - 쿠버네티스의 메인 모니터링 시스템으로 많이 사용된다.
+  - 프로메테우스가 주기적으로 exporter(모니터링 대상 시스템)로부터 pulling 방식으로 메트릭을 읽어서 수집한다.
+  - [Prometheus 를 통한 서버 모니터링](https://medium.com/myrealtrip-product/prometheus%EB%A5%BC-%ED%86%B5%ED%95%9C-%EC%84%9C%EB%B2%84-%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81-deab448b769d)
+- grafana
+  - 그라파나는 프로메테우스를 비롯한 여러 데이터들을 시각화해주는 모니터링 툴이다.
+  - Kibana(키바나)와의 차이
+    - 키바나는 주로 로그 메시지 분석에 사용된다.
+    - 그라파나는 시스템 관점(cpu, 메모리, 디스크)의 메트릭 지표를 시각화하는데 특화되어 있다.
+    - 키바나는 elasticsearch 에 묶여 있지만, 그라파나는 다양한 데이터베이스를 선택할 수 있다.
+    - 그라파나는 알람기능을 무료로 사용할 수 있다.
+- [prometheus vs ELK](https://www.metricfire.com/blog/prometheus-vs-elk/)

@@ -42,6 +42,7 @@ Today I Learned.
 
 - [gRPC](msa/grpc/README.md)
 - [api-gateway kong](msa/api-gateway/kong/README.md)
+- [logging](msa/logging.md)
 
 ## 세미나
 
